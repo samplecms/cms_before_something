@@ -1,0 +1,25 @@
+{ 
+    "require": {
+        "php": ">=5.5.0",
+        "alexgarrett/violin": "^2.2",
+        "erusev/parsedown": "^1.6",
+        "symfony/yaml": "^3.0", 
+        "pimple/pimple": "^3.0",
+        "league/oauth2-client": "^1.4",
+        "imagine/imagine": "^0.6.3"
+        
+    },
+    "autoload": {
+         "files":[
+            "./system/lib/_function.php",
+            "./bootstrap.php"
+        ],
+         "psr-4": {
+            "core\\": "system/lib/",
+            "app\\": "app/",
+            "plugin\\":"plugins/"
+
+        } 
+    }
+
+}

@@ -1,0 +1,12 @@
+table .button,table .fa{
+	margin-right: 30px;
+}
+label{
+	display: block;
+}
+table a:not(.btn), .table a:not(.btn),a{
+	text-decoration:none;
+}
+ul.pagination{
+	display: block;
+}
