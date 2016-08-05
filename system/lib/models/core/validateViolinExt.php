@@ -52,6 +52,14 @@ class validateViolinExt extends Violin
     {
         $this->addRuleMessage('unique', '已存在相同记录');
     }
+    
+    public function validate_not_empty($value, $input, $args)
+    {
+    	
+    	return strlen($value);
+    	
+    }
+    
 	/**
 	 * 
 	 * unique(users,user)

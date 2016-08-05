@@ -69,11 +69,15 @@ class  base extends validate {
 	 * @return unknown[]
 	 */
 	protected function filterData($data){
+		
 		$Fdata = [];
 		$allow = $this->allowFields;
 		$ignore = $this->ignoreFiles;
-		
+ 
 		foreach($data as $k=>$v){
+			if($this->int && in_array($k,$this->int)){
+				$v = (int)$v;
+			}
 			if($ignore && in_array($k,$ignore)){
 				continue;		
 			}
@@ -202,8 +206,7 @@ class  base extends validate {
 		if(method_exists($this,'beforeSave')){
 			$this->beforeSave($data);
 		}
-		
-		$data = $this->filterData($this->data+$data);
+		$data = $this->filterData($data+$this->data);
 		if(!$data){
 			return false;
 		}
