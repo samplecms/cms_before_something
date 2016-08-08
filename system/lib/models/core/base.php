@@ -150,7 +150,8 @@ class  base extends validate {
 				if(!$setData){
 					return false;
 				}
-				$setData['updated'] = new \MongoDate();
+				if(!$setData['updated'])
+					$setData['updated'] = new \MongoDate();
 				
 				if($updateAll){
 					$log = "All ";
@@ -210,9 +211,10 @@ class  base extends validate {
 		if(!$data){
 			return false;
 		}
-		 
-		$data['created'] = new \MongoDate();
-		$data['updated'] = new \MongoDate();
+		if(!$data['created'])
+			$data['created'] = new \MongoDate();
+		if(!$data['updated'])
+			$data['updated'] = new \MongoDate();
 		
 		$this->_log(
 				'Insert Collection: ['.$this->tb.'],'.
