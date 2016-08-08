@@ -83,14 +83,16 @@ $par = ['s'=>$_GET['s']];
 		    			echo '<div class="alert alert-dismissible alert-danger">'.$error.'</div>';
 		    		
 		    } ?>
-     <form method="POST"    enctype="multipart/form-data">
+     <form method="POST" class='ajax_form'    enctype="multipart/form-data">
 	  <div class="form-group">
 	    <label >菜单名</label>
 	    <input type="input" class="form-control"  value="<?php echo $data['title'];?>" name='title' >
+	    <div class='alert alert-warning error' style="display:none;"></div>
 	  </div>
 	  <div class="form-group">
 	    <label >唯一标识</label>
 	    <input type="input" class="form-control"  value="<?php echo $data['slug'];?>" name='slug' >
+	    <div class='alert alert-warning error' style="display:none;"></div>
 	  </div>
 
 	  <div class="form-group">
@@ -100,6 +102,8 @@ $par = ['s'=>$_GET['s']];
 
 	    $vid =  $data['value'];
 	    if($vid){
+	    	$a = explode('|',$vid);
+	    	$vid = $a[1];
 
 			$post  = obj('app\models\post')->one(['_id'=>new \MongoId($vid)]);
 			if($post){

@@ -10,3 +10,9 @@ table a:not(.btn), .table a:not(.btn),a{
 ul.pagination{
 	display: block;
 }
+.hide{
+	display:none;
+}
+.fa{
+	margin-right:10px;
+}

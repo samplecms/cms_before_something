@@ -13,7 +13,7 @@ $par = ['s'=>$_GET['s'],'page'=>$_GET['page']];
      
      <h1>文章</h1>
      <?php if($list==1){?>
-     	<form class='ajaxform' method='post' action="<?php echo url('post/admin/sort');?>">
+     	<form class='ajax_form' method='post' action="<?php echo url('post/admin/sort');?>">
      <table class="table">
       <caption>管理文章(<?php echo $count;?>). 
       
@@ -118,10 +118,11 @@ $par = ['s'=>$_GET['s'],'page'=>$_GET['page']];
     <?php }?>
     
    <?php if($view==1){?>
-     <form method="POST" class='ajaxform'  enctype="multipart/form-data">
+     <form method="POST" class='ajax_form'  enctype="multipart/form-data">
 	  <div class="form-group">
 	    <label >标题</label>
 	    <input type="input" class="form-control"  value="<?php echo $data['title'];?>" name='title' >
+	    <div class='alert alert-warning error' style="display:none;"></div>
 	  </div>
 	  <div class="form-group">
 	    <label>分类</label>
@@ -129,11 +130,13 @@ $par = ['s'=>$_GET['s'],'page'=>$_GET['page']];
 		    <select name='category' class=" select form-control" >
 		    	<?php echo $category;?>
 		    </select>
+		    <div class='alert alert-warning error' style="display:none;"></div>
 	    </p>
 	  </div>
 	  <div class="form-group">
 	    <label >主体内容</label>
-	    <textarea id='body'    class="form-control" name='body'  ><?php echo $data['body'];?></textarea>
+	    <textarea id='body'    class="form-control" name='body'  ><?php echo $data['body'];?> </textarea>
+	    <div class='alert alert-warning error' id="body_error" style="display:none;"></div>
 	  </div>
 	 
 	

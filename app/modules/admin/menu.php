@@ -94,23 +94,27 @@ class menu extends base_auto{
 			if(!$_POST['pid']){
 				$_POST['pid'] = '0';
 			}
+			$url = url('admin/menu/index',$_GET);
 			if($id){
 				$r = $model->updateValidate();
 					 
 				if($r['errors']){
-					$data['error'] = $r['errors'];
+					exit(json_encode(['msg'=>$r['errors']]));
 				}else{
 					flash('success',__('Update Action Success'));
-					redirect(url('admin/menu/index',$_GET));
+					
+					
+					exit(json_encode(['msg'=>$r['errors'],'go_to'=>$url]));
+					
 					
 				}
 			}else{
 				$r = $model->insertValidate();
 				if($r['errors']){
-					$data['error'] = $r['errors'];
+					exit(json_encode(['msg'=>$r['errors']]));
 				}else{
 					flash('success',__('Create Action Success'));
-					redirect(url('admin/menu/index',$_GET));
+					exit(json_encode(['msg'=>$r['errors'],'go_to'=>$url]));
 					
 				}
 			}

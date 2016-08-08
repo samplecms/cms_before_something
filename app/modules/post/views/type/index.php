@@ -13,7 +13,7 @@ $par = ['s'=>$_GET['s']];
 <div class="container">
      <h1>分类</h1>
      <?php if($list==1){?>
-     	<form class='ajaxform' method='post' action="<?php echo url('post/type/sort');?>">
+     	<form class='ajax_form' method='post' action="<?php echo url('post/type/sort');?>">
      <table class="table">
       <caption>管理分类(<?php echo $count;?>). 
       	<span class='pull-right'>
@@ -80,14 +80,16 @@ $par = ['s'=>$_GET['s']];
 		    			echo '<div class="alert alert-dismissible alert-danger">'.$error.'</div>';
 		    		
 		    } ?>
-     <form method="POST" class='ajaxform'  enctype="multipart/form-data">
+     <form method="POST" class='ajax_form'  enctype="multipart/form-data">
 	  <div class="form-group">
 	    <label >分类名</label>
 	    <input type="input" class="form-control"  value="<?php echo $data['title'];?>" name='title' >
+	    <div class='alert alert-warning error' style="display:none;"></div>
 	  </div>
 	  <div class="form-group">
 	    <label >唯一标识</label>
 	    <input type="input" class="form-control"  value="<?php echo $data['slug'];?>" name='slug' >
+	    <div class='alert alert-warning error' style="display:none;"></div>
 	  </div>
 	  <?php if($category){?>
 	  <div class="form-group">
